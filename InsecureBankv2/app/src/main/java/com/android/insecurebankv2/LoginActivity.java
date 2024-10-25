@@ -22,7 +22,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.insecurebankv2.DoLogin;
-import com.marcohc.toasteroid.Toasteroid;
 
 /*
 The page that accepts username and the password from the user. The credentials 
@@ -114,7 +113,7 @@ public class LoginActivity extends Activity {
     ToDo: Add functionality here.
     */
     protected void createUser() {
-        Toasteroid.show(this, "Create User functionality is still Work-In-Progress!!", Toasteroid.STYLES.WARNING, Toasteroid.LENGTH_LONG);
+        Toast.makeText(this, "Create User functionality is still Work-In-Progress!!", Toast.LENGTH_LONG).show();
 
     }
 

@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.marcohc.toasteroid.Toasteroid;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -113,18 +112,18 @@ public class FilePrefActivity extends Activity {
                 editor.putString("serverip", serveripSaved);
                 editor.putString("serverport", serverportSaved);
                 editor.commit();
-				Toasteroid.show(this, "Server Configured Successfully!!", Toasteroid.STYLES.SUCCESS, Toasteroid.LENGTH_SHORT);
+				Toast.makeText(this, "Server Configured Successfully!!", Toast.LENGTH_SHORT).show();
 
 				finish();
             }
             else
             {
-                Toasteroid.show(this, "Invalid Port entered!!", Toasteroid.STYLES.ERROR, Toasteroid.LENGTH_SHORT);
+                Toast.makeText(this, "Invalid Port entered!!", Toast.LENGTH_SHORT).show();
             }
         }
         else
         {
-            Toasteroid.show(this, "Invalid Server IP!!", Toasteroid.STYLES.ERROR, Toasteroid.LENGTH_SHORT);
+            Toast.makeText(this, "Invalid Server IP!!",  Toast.LENGTH_SHORT).show();
         }
 
 	}

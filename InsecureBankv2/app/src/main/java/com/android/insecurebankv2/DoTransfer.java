@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+
+import android.annotation.SuppressLint;
 import android.widget.Toast;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -43,7 +45,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.marcohc.toasteroid.Toasteroid;
 
 /*
 The page that allows the user to transfer an amount between two accounts
@@ -124,6 +125,7 @@ public class DoTransfer extends Activity {
 		/**
 		 * background functions
 		 */
+		@SuppressLint("WrongThread")
 		@Override
 		protected String doInBackground(String...params) {
 			String str = "";
@@ -191,7 +193,7 @@ public class DoTransfer extends Activity {
 					AsyncHttpTransferPost("result");
 					if (result != null) {
 						if (result.indexOf("Success") != -1) {
-                            Toasteroid.show(DoTransfer.this, "Transfer Successful!!", Toasteroid.STYLES.SUCCESS, Toasteroid.LENGTH_SHORT);
+                            Toast.makeText(DoTransfer.this, "Transfer Successful!!", Toast.LENGTH_SHORT).show();
 
                             try {
 								jsonObject = new JSONObject(result);
@@ -214,7 +216,7 @@ public class DoTransfer extends Activity {
 								e.printStackTrace();
 							}
 						} else {
-                            Toasteroid.show(DoTransfer.this, "Transfer Failed!!", Toasteroid.STYLES.ERROR, Toasteroid.LENGTH_SHORT);
+                            Toast.makeText(DoTransfer.this, "Transfer Failed!!", Toast.LENGTH_SHORT).show();
 
 
                             System.out.println("Message:" + "Failure" + " From:" + from.getText().toString() + " To:" + to.getText().toString() + " Amount:" + amount.getText().toString());
